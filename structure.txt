@@ -1,0 +1,71 @@
+# System Analysis - AI Attendance Management System
+
+## 1. Foundational System Analysis
+The system is a modern, production-ready React.js application designed for managing student attendance using AI-based facial recognition. 
+- **Framework**: React 19 with Vite.
+- **Styling**: Tailwind CSS 4.0.
+- **Authentication**: Firebase Authentication (Email/Password).
+- **State Management**: React Context API (AuthContext).
+- **Routing**: React Router DOM v7.
+- **Visualizations**: Chart.js and React-Chartjs-2.
+- **Animations**: Motion (Framer Motion).
+- **Icons**: Lucide React.
+
+## 2. Missing Dependencies, Concerns, and Errors
+
+### Missing Dependencies / Concerns:
+- **Firebase Configuration**: The application is currently missing valid Firebase environment variables (`VITE_FIREBASE_API_KEY`, etc.). This is a critical blocker for real authentication.
+- **Backend API**: The frontend is configured to communicate with a FastAPI backend (defaulting to localhost:8000). Without this backend, Student Registration, Live Recognition, and Analytics data fetching will fail.
+- **WebRTC Implementation**: The Live Attendance feature requires a robust WebRTC setup for camera capture, which currently relies on browser APIs that may need further testing in different environments.
+- **CSV Utility**: A dedicated utility for CSV generation is needed for the Reports page export functionality.
+
+### System Errors:
+- **auth/api-key-not-valid**: This error is frequently encountered when the `VITE_FIREBASE_API_KEY` is not set or is set to a placeholder value.
+- **Network Errors (Potential)**: Axios will throw errors if the `VITE_API_BASE_URL` is unreachable.
+
+## 3. Project File Index
+
+/ (Root)
+├── .env.example
+├── .gitignore
+├── index.html
+├── metadata.json
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+
+/src
+├── App.tsx
+├── index.css
+├── main.tsx
+│
+├── /components
+│   ├── Layout.tsx
+│   └── /common
+│       └── ProtectedRoute.tsx
+│
+├── /config
+│   └── firebase.ts
+│
+├── /context
+│   └── AuthContext.tsx
+│
+├── /pages
+│   ├── About.tsx
+│   ├── Analytics.tsx
+│   ├── Attendance.tsx
+│   ├── AuthPages.tsx
+│   ├── Contact.tsx
+│   ├── Dashboard.tsx
+│   ├── DashboardPages.tsx
+│   ├── Explore.tsx
+│   ├── Landing.tsx
+│   ├── Reports.tsx
+│   ├── Settings.tsx
+│   └── Students.tsx
+│
+├── /services
+│   └── api.ts
+│
+└── /types
+    └── index.ts

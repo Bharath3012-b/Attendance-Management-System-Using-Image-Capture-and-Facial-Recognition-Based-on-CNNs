@@ -1,0 +1,7 @@
+{
+  "name": "AI Attendance Pro",
+  "description": "Enterprise-grade AI-based attendance management system using facial recognition and real-time analytics.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
